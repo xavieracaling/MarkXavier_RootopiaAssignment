@@ -1,16 +1,29 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RecruitmentManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public ArmyRecruited ArmyRecruitedPrefab;
+    public Transform Content;
+    public static RecruitmentManager Instance;
+    public List<ArmyRecruited>ListArmyRecruited = new List<ArmyRecruited>();
+    public Text TotalPowerUI;
+    public int ITotalPower;
+    void Awake()
+    {
+        Instance = this;
+    }
     void Start()
     {
-        
+        ITotalPower = 0;
     }
-
-    // Update is called once per frame
-    void Update()
+    public void AddArmyRecruitedPrefab(Sprite icon, int level, Class _class, ArmyStatus armyStatus, int power)
     {
-        
+        ITotalPower += power;
+        TotalPowerUI.text = ITotalPower.ToString();
+        ArmyRecruited armyRecruited = Instantiate(ArmyRecruitedPrefab,Content);
+        ListArmyRecruited.Add(armyRecruited);
     }
+    
 }

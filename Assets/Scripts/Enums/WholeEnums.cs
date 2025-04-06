@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum Class 
+public enum Class
 {
     Warrior,
     Archer,
