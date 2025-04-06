@@ -88,7 +88,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -501,7 +501,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -510,7 +510,22 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pngtree-gem-line-icon-png-image_9023815_0: -6158068431952360746
+      pngtree-gem-line-icon-png-image_9023815_1: -6596287412821711921
+      pngtree-gem-line-icon-png-image_9023815_10: -3141702236022178639
+      pngtree-gem-line-icon-png-image_9023815_11: -3638415552910853479
+      pngtree-gem-line-icon-png-image_9023815_12: -2938662121729741079
+      pngtree-gem-line-icon-png-image_9023815_13: 8139451138896249534
+      pngtree-gem-line-icon-png-image_9023815_14: 1461995045880768193
+      pngtree-gem-line-icon-png-image_9023815_2: -1265600147464882568
+      pngtree-gem-line-icon-png-image_9023815_3: -6844073044667641308
+      pngtree-gem-line-icon-png-image_9023815_4: 8550967554639094628
+      pngtree-gem-line-icon-png-image_9023815_5: 1295160365364632445
+      pngtree-gem-line-icon-png-image_9023815_6: -3995131167522683510
+      pngtree-gem-line-icon-png-image_9023815_7: -5031839504944528181
+      pngtree-gem-line-icon-png-image_9023815_8: -2490855629826833223
+      pngtree-gem-line-icon-png-image_9023815_9: 7424039210794134929
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
