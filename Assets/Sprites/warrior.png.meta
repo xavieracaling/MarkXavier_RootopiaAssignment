@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: cba3dd99d6dde1b43936d5db3e6142aa
+guid: 85bb2b02c0afe0749bce500e0ca9b2d3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6292262427815445687
-    second: 9-92402_white-square-png-picture-transparent-simple-border-square_0
+      213: 3944610533857416082
+    second: warrior_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 9-92402_white-square-png-picture-transparent-simple-border-square_0
+      name: warrior_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 19
-        width: 802
-        height: 802
+        x: 0
+        y: 0
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7b40a7b175b925750800000000000000
-      internalID: 6292262427815445687
+      spriteID: 293d5df81621eb630800000000000000
+      internalID: 3944610533857416082
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      9-92402_white-square-png-picture-transparent-simple-border-square_0: 6292262427815445687
+      warrior_0: 3944610533857416082
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
