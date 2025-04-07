@@ -15,6 +15,9 @@ public class UIManager : MonoBehaviour
     public Vector2 MapOriginal;
     public CanvasGroup BlockingBG;
     public List<CanvasGroup> ListDarkSpiritCG = new List<CanvasGroup>();
+    public CanvasGroup BGMissionCG;
+    public CanvasGroup MissionCG;
+    public Text MissionDescUI;
     void Awake()
     {
         Instance = this;
@@ -34,6 +37,32 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+    public void OpenMission(string description = "")
+    {
+        BGMissionCG.alpha = 0;
+        MissionCG.alpha = 0;
+
+        BGMissionCG.DOKill();
+        MissionCG.DOKill();
+
+        BGMissionCG.blocksRaycasts = true;
+        MissionCG.blocksRaycasts = true;
+
+        BGMissionCG.DOFade(1,0.35f).SetEase(Ease.OutFlash);
+        MissionCG.DOFade(1,0.35f).SetEase(Ease.OutFlash).SetDelay(0.1f);
+        
+        MissionDescUI.text = description;
+    }
+    public void CloseMission()
+    {
+        BGMissionCG.DOKill();
+        MissionCG.DOKill();
+
+        
+        BGMissionCG.DOFade(0,0.35f).SetEase(Ease.OutFlash).SetDelay(0.1f).OnComplete(() => {MissionCG.blocksRaycasts = false; BGMissionCG.blocksRaycasts = false;} );
+        MissionCG.DOFade(0,0.35f).SetEase(Ease.OutFlash);
         
     }
     public void UpdateListUIGem ()
@@ -110,6 +139,7 @@ public class UIManager : MonoBehaviour
     }
     public void CloseMap()
     {
+        CloseMission();
         CloseBlockBG();
         Map.transform.DOKill();
 
