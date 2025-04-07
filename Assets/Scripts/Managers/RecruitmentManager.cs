@@ -23,6 +23,7 @@ public class RecruitmentManager : MonoBehaviour
         ITotalPower += power;
         TotalPowerUI.text = ITotalPower.ToString();
         ArmyRecruited armyRecruited = Instantiate(ArmyRecruitedPrefab,Content);
+        armyRecruited.SetDataArmy(icon,level,_class,armyStatus);
         ListArmyRecruited.Add(armyRecruited);
     }
     

@@ -13,7 +13,12 @@ public class GameManager : MonoBehaviour
     {
         if (GameData.Gem >= gemPrice)
         {
+            GameData.Gem -= gemPrice;
+            if (GameData.Gem <= 0)
+                GameData.Gem = 0;
+                
             action?.Invoke();
+            UIManager.Instance.UpdateListUIGem ();
         }
         else
         {

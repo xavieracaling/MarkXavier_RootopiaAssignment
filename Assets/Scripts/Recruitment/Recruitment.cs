@@ -8,6 +8,7 @@ public class Recruitment : CharacterAbs
     public Button Recruit;
     public Text PowerUI;
     public Text GemUI;
+    public GameObject CooldownReq;
     void Start()
     {
         PowerUI.text = $"POWER: {Power.ToString("N0")}" ;
@@ -18,6 +19,11 @@ public class Recruitment : CharacterAbs
     }
     void recruit()
     {
-        GameManager.Instance.PurchaseGem(GemPrice,() => RecruitmentManager.Instance.AddArmyRecruitedPrefab(Icon.sprite,Level,_ClassType,_ArmyStatus, Power));
+        GameManager.Instance.PurchaseGem(GemPrice,() => {
+            CooldownReq.SetActive(true);
+            CooldownRecruitment cooldownRecruitment = CooldownReq.GetComponent<CooldownRecruitment>();
+            cooldownRecruitment.Initialize();
+            RecruitmentManager.Instance.AddArmyRecruitedPrefab(Icon.sprite,Level,_ClassType,_ArmyStatus, Power);
+        } );
     }
 }
