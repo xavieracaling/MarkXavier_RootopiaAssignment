@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     public Vector2 RecruitmentDashboardOriginal;
     public Vector2 MapOriginal;
     public CanvasGroup BlockingBG;
+    public List<CanvasGroup> ListDarkSpiritCG = new List<CanvasGroup>();
     void Awake()
     {
         Instance = this;
@@ -24,6 +25,10 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         UpdateListUIGem ();
+        foreach (var item in ListDarkSpiritCG)
+        {
+            item.DOFade(0f,0.8f).SetEase(Ease.InOutSine).SetLoops(-1,LoopType.Yoyo);
+        }
     }
 
     // Update is called once per frame
@@ -71,10 +76,9 @@ public class UIManager : MonoBehaviour
         RecruitmentDashboard.transform.DOKill();
         CanvasGroup canvasGroup = RecruitmentDashboard.GetComponent<CanvasGroup>();
         canvasGroup.DOKill();
-
+        canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 0; 
         RecruitmentDashboard.transform.localPosition = new Vector2(0,-1013);
-        RecruitmentDashboard.SetActive(true);
         canvasGroup.DOFade(1,0.35f).SetEase(Ease.OutFlash);
         RecruitmentDashboard.transform.DOLocalMoveY(RecruitmentDashboardOriginal.y,0.45f).SetEase(Ease.OutFlash);
 
@@ -87,7 +91,7 @@ public class UIManager : MonoBehaviour
         CanvasGroup canvasGroup = RecruitmentDashboard.GetComponent<CanvasGroup>();
         canvasGroup.DOKill();
 
-        RecruitmentDashboard.transform.DOLocalMoveY(-1013,0.4f).SetEase(Ease.OutFlash).OnComplete(() => RecruitmentDashboard.SetActive(false));
+        RecruitmentDashboard.transform.DOLocalMoveY(-1013,0.4f).SetEase(Ease.OutFlash).OnComplete(() =>{canvasGroup.blocksRaycasts = false;} );
         canvasGroup.DOFade(0,0.3f).SetEase(Ease.OutFlash);
     }
     public void OpenMap()
@@ -97,10 +101,9 @@ public class UIManager : MonoBehaviour
         Map.transform.DOKill();
         CanvasGroup canvasGroup = Map.GetComponent<CanvasGroup>();
         canvasGroup.DOKill();
-
+        canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 0; 
         Map.transform.localPosition = new Vector2(-146,-1013);
-        Map.SetActive(true);
         canvasGroup.DOFade(1,0.35f).SetEase(Ease.OutFlash);
         Map.transform.DOLocalMoveY(MapOriginal.y,0.45f).SetEase(Ease.OutFlash);
 
@@ -113,7 +116,7 @@ public class UIManager : MonoBehaviour
         CanvasGroup canvasGroup = Map.GetComponent<CanvasGroup>();
         canvasGroup.DOKill();
 
-        Map.transform.DOLocalMoveY(-1013,0.4f).SetEase(Ease.OutFlash).OnComplete(() => Map.SetActive(false));
+        Map.transform.DOLocalMoveY(-1013,0.4f).SetEase(Ease.OutFlash).OnComplete(() => canvasGroup.blocksRaycasts = false);
         canvasGroup.DOFade(0,0.3f).SetEase(Ease.OutFlash);
     }
     public void OpenBlockBG()
